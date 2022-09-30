@@ -30,6 +30,7 @@ def main():
         if t % 100 == 0:
             plt.plot(x, y, 'r+')
             plt.plot(x, y_pred)
+            plt.connect('key_press_event', keyEvent)
             plt.show()
             print(t, loss)
 
@@ -48,6 +49,10 @@ def main():
 
 
     print(f'Result pred: y = {a.item()} + {b.item()} x + {c.item()} x^2 + {d.item()} x^3')
+
+
+def keyEvent():
+    plt.close()
 
 
 if __name__ == '__main__':

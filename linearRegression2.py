@@ -31,6 +31,7 @@ def main():
         if t % 10000 == 0:
             plt.plot(x, y, 'r+')
             plt.plot(x, m * x + c)
+            plt.connect('key_press_event', keyEvent)
             plt.show()
             print(t, loss)
 
@@ -44,6 +45,10 @@ def main():
         c -= learning_rate * grad_c
 
     print(f'Result pred: y = ({m}) x + ({c})')
+
+
+def keyEvent():
+    plt.close()
 
 
 if __name__ == '__main__':
